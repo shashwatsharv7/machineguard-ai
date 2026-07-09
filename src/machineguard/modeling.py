@@ -15,6 +15,8 @@ FEATURE_COLS = [
     "Tool wear [min]",
 ]
 
+ENGINEERED_FEATURE_COLS = FEATURE_COLS + ["temperature_difference", "power_proxy"]
+
 CATEGORICAL_FEATURES = ["Type"]
 
 NUMERIC_FEATURES = [
@@ -24,7 +26,6 @@ NUMERIC_FEATURES = [
     "Torque [Nm]",
     "Tool wear [min]",
 ]
-
 
 def build_random_forest_model(feature_cols=None):
     if feature_cols is None:

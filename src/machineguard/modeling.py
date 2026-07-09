@@ -26,11 +26,16 @@ NUMERIC_FEATURES = [
 ]
 
 
-def build_random_forest_model():
+def build_random_forest_model(feature_cols=None):
+    if feature_cols is None:
+        feature_cols = FEATURE_COLS
+
+    categorical_features = ["Type"]
+    numeric_features = [col for col in feature_cols if col != "Type"]
     preprocessing = ColumnTransformer(
         transformers=[
-            ("category", OneHotEncoder(handle_unknown="ignore"), CATEGORICAL_FEATURES),
-            ("numeric", "passthrough", NUMERIC_FEATURES),
+            ("category", OneHotEncoder(handle_unknown="ignore"), categorical_features),
+            ("numeric", "passthrough", numeric_features),
         ]
     )
 

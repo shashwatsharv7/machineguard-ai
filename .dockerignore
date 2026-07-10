@@ -1,0 +1,8 @@
+.git
+__pycache__
+*.pyc
+.venv
+data
+notebooks
+.DS_Store
+.pytest_cache
